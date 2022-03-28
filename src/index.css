@@ -102,6 +102,22 @@ section.bg-gray {
   font-weight: bold;
 }
 
+/* hero */
+.carousel-item img {
+  object-fit: cover;
+  min-height: 50vh;
+  max-height: 80vh;
+}
+
+/* founder */
+.img-founder {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.img-founder img {
+  object-fit: cover;
+}
+
 /* cards */
 .card {
   margin-right: 1em;

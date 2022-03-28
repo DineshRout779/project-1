@@ -53,14 +53,14 @@ export const videosData = [
   },
   {
     id: 3,
-    img: './images/shows/show-3.jpeg',
-    title: 'Audition notice',
+    img: './images/shows/show-1.jpg',
+    title: 'Comedy ka Double Doz',
     link: '',
   },
   {
     id: 4,
-    img: './images/shows/show-4.jpeg',
-    title: 'Audition notice',
+    img: './images/shows/show-2.jpg',
+    title: 'Piya Ghar Jana Hai',
     link: '',
   },
 ];

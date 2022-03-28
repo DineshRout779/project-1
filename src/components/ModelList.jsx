@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Button, Card, Container } from 'react-bootstrap';
+import { useState } from 'react';
+import { Button, Card, Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { modelsData } from '../data/data';
@@ -42,10 +43,41 @@ const settings = {
   ],
 };
 
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size='lg'
+      aria-labelledby='contained-modal-title-vcenter'
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id='contained-modal-title-vcenter'>
+          {modelsData[props.activeIndex].name}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>Model Description</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 const ModelList = () => {
+  const [modalShow, setModalShow] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <section id='latest'>
       <Container>
+        <MyVerticallyCenteredModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          activeIndex={activeIndex}
+        />
         <h2 className='heading-title'>Models</h2>
         <Slider {...settings}>
           {modelsData.map((item, i) => {
@@ -55,6 +87,15 @@ const ModelList = () => {
                   <Card.Img variant='top' src={item.img} />
                   <Card.Body>
                     <Card.Title>{item.name}</Card.Title>
+                    <Button
+                      variant={'outline-danger'}
+                      onClick={() => {
+                        setModalShow(true);
+                        setActiveIndex(i);
+                      }}
+                    >
+                      Details
+                    </Button>
                   </Card.Body>
                 </Card>
               </div>

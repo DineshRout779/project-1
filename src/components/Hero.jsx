@@ -20,7 +20,7 @@ const Hero = () => {
               <img
                 className='d-block w-100'
                 src={width > 768 ? item.desktopImg : item.mobileImg}
-                alt={item.title}
+                alt={'carousel-item'}
               />
             </Carousel.Item>
           );

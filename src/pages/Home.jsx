@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 // import Intro from '../components/Intro';
 import ModelList from '../components/ModelList';
+import Founder from '../components/Founder';
 
 const Home = () => {
   const [show, setShow] = useState(false);
@@ -32,6 +33,7 @@ const Home = () => {
     <div>
       <Hero />
       {/* <Intro /> */}
+      <Founder />
       <ModelList />
       <Videos />
       <NewsList />
